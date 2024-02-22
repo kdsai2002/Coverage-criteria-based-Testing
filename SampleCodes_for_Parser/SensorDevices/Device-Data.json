@@ -1,0 +1,53 @@
+[{
+  "topicFilter": "T1",
+  "qos": 0,
+  "messages": [
+    {
+      "format": "json",
+      "topic": "T1",
+      "timestamp": 1655115350779,
+      "payload": {
+        "clientId": "ID-91B2F06B3F05",
+        "A1": "s1",
+        "A2": "v1",
+        "A3": "v3",
+        "A4": "v4",
+        "A5": "v5",
+        "A6": "v6"
+      }
+    }
+  ]},
+
+  {
+    "topicFilter": "T3",
+    "qos": 0,
+    "messages": [
+      {
+        "format": "json",
+        "topic": "T3",
+        "timestamp": 1655115350779,
+        "payload": {
+          "clientId": "ID-81K9F07B3H05",
+          "A7": "v7",
+          "A8": "v8",
+          "A9": "v9",
+          "A10": "v10"
+        }
+      }
+    ]},
+ 
+  {
+  "topicFilter": "T2",
+  "qos": 0,
+  "messages": [
+    {
+      "format": "json",
+      "topic": "T2",
+      "timestamp": 1650286895446,
+      "payload": {
+        "clientId": "ID-91B2F06B3H91",
+        "A11": "v11"
+      }
+    }
+  ]
+}]

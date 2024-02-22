@@ -1,0 +1,97 @@
+[
+    {
+        "Name": "DynamoDBToSNSRule",
+        "EventPattern": {
+            "source": [
+                "aws.dynamodb"
+            ],
+            "detail-type": [
+                "DynamoDB Table Activity"
+            ],
+            "detail": {
+                "eventSource": [
+                    "dynamodb.amazonaws.com"
+                ],
+                "eventName": [
+                    "Insert",
+                    "Modify",
+                    "Remove"
+                ],
+                "requestParameters": {
+                    "tableName": [
+                        "YourDynamoDBTableName"
+                    ]
+                }
+            }
+        },
+        "State": "ENABLED",
+        "Description": "Rule that triggers an SNS topic for DynamoDB events",
+        "Targets": [
+            {
+                "Id": "SnsTarget",
+                "Arn": "arn:aws:sns:us-west-2:123456789012:YourSnsTopic"
+            }
+        ]
+    },
+    {
+        "Name": "S3ToSNSRule",
+        "EventPattern": {
+            "source": [
+                "aws.s3"
+            ],
+            "detail-type": [
+                "AWS API Call via CloudTrail"
+            ],
+            "detail": {
+                "eventSource": [
+                    "s3.amazonaws.com"
+                ],
+                "eventName": [
+                    "CreateBucket",
+                    "PutObject",
+                    "DeleteObject"
+                ],
+                "requestParameters": {
+                    "bucketName": [
+                        "YourS3BucketName"
+                    ]
+                }
+            }
+        },
+        "State": "ENABLED",
+        "Description": "Rule that triggers an SNS topic for S3 events",
+        "Targets": [
+            {
+                "Id": "SnsTarget",
+                "Arn": "arn:aws:sns:us-west-2:123456789012:YourSnsTopic"
+            }
+        ]
+    },
+    {
+        "Name": "SNSToIoTRule",
+        "EventPattern": {
+            "source": [
+                "aws.sns"
+            ],
+            "detail-type": [
+                "SNS Message"
+            ],
+            "resources": [
+                "arn:aws:sns:us-west-2:123456789012:YourSnsTopic"
+            ],
+            "detail": {
+                "EventSubscriptionArn": [
+                    "arn:aws:sns:us-west-2:123456789012:YourSnsTopic:SomeSubscriptionId"
+                ]
+            }
+        },
+        "State": "ENABLED",
+        "Description": "Rule that triggers an IoT rule from SNS messages",
+        "Targets": [
+            {
+                "Id": "IotTarget",
+                "Arn": "arn:aws:iot:us-west-2:123456789012:rule/YourIoTRule"
+            }
+        ]
+    }
+]

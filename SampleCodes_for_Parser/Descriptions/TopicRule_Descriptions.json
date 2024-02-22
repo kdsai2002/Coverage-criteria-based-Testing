@@ -1,0 +1,115 @@
+[
+    {
+      "ruleArn": "arn:aws:iot:us-east-1:109043899433:rule/MycarOilRule",
+      "rule": {
+        "ruleName": "R1",
+        "actions": [
+          {
+            "lambda": {
+              "functionArn": "arn:aws:lambda:us-east-1:109043899433:function:L6"
+            }
+          }
+        ],
+        "createdAt": 1655116302.0,
+        "sql": "SELECT A1, A2 FROM \"T1\"",
+        "awsIotSqlVersion": "2016-03-23",
+        "ruleDisabled": false
+      }
+    },
+    {
+      "ruleArn": "arn:aws:iot:us-west-2:209593679102:rule/pressure_rule",
+      "rule": {
+        "ruleName": "R3",
+        "actions": [
+          {
+            "s3": {
+              "bucketName": "your-bucket-name",
+              "cannedacl": "public-read",
+              "key": "${topic()}/${timestamp()}",
+              "roleArn": "arn:aws:iam::123456789012:role/aws_iot_s3"
+            }
+          }
+        ],
+        "sql": "SELECT * FROM \"T2\"",
+        "ruleDisabled": false,
+        "awsIotSqlVersion": "2016-03-23"
+      }
+    },
+    {
+      "ruleArn": "arn:aws:iot:us-west-2:209593679102:rule/pressure_rule",
+      "rule": {
+        "ruleName": "R7",
+        "actions": [
+          {
+            "iotEvent": {
+              "inputName": "MyIoTEventsInput",
+              "messageId": "${newuuid()}",
+              "roleArn": "arn:aws:iam::123456789012:role/aws_iot_events"
+            }
+          }
+        ],
+        "sql": "SELECT * FROM \"T3\"",
+        "ruleDisabled": false,
+        "awsIotSqlVersion": "2016-03-23"
+      }
+    },
+    {
+      "ruleArn": "arn:aws:iot:us-west-2:209593679102:rule/rule_to_db",
+      "rule": {
+        "description": "",
+        "ruleName": "R4",
+        "actions": [
+          {
+            "dynamoDB": {
+              "payloadField": "payload",
+              "hashKeyType": "STRING",
+              "hashKeyField": "id",
+              "roleArn": "arn:aws:iam::209593679102:role/service-role/fggfh",
+              "tableName": "your-table-name",
+              "hashKeyValue": "temperature",
+              "operation": "INSERT"
+            }
+          }
+        ],
+        "createdAt": 1658217021.0,
+        "sql": "SELECT A5, A5, A6, A7 FROM \"T2\" WHERE A7 > 30",
+        "awsIotSqlVersion": "2016-03-23",
+        "ruleDisabled": false
+      }
+    },
+    {
+      "ruleArn": "arn:aws:iot:us-west-2:209593679102:rule/pressure_rule",
+      "rule": {
+        "ruleName": "R5",
+        "actions": [
+          {
+            "sqs": {
+              "queueUrl": " ",
+              "roleArn": "arn:aws:iam::123456789012:role/aws_iot_sqs"
+            }
+          }
+        ],
+        "sql": "SELECT * FROM \"T3\"",
+        "ruleDisabled": false,
+        "awsIotSqlVersion": "2016-03-23"
+      }
+    },
+    {
+      "ruleArn": "arn:aws:iot:us-west-2:209593679102:rule/pressure_rule",
+      "rule": {
+        "ruleName": "R6",
+        "actions": [
+          {
+            "sns": {
+              "targetArn": "arn:aws:sns:us-west-2:123456789012:my-sns-topic",
+              "roleArn": "arn:aws:iam::123456789012:role/my-iot-role"
+            }
+          }
+        ],
+        "sql": "SELECT * FROM \"T1\"",
+        "awsIotSqlVersion": "2016-03-23",
+        "ruleDisabled": false
+      }
+    }
+  ]
+  

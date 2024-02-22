@@ -1,0 +1,66 @@
+[
+    {
+      "UUID": "mapping-uuid-1",
+      "BatchSize": 10,
+      "EventSourceArn": "arn:aws:lambda:us-east-1:123456789012:function:L6",
+      "FunctionArn": "arn:aws:lambda:us-east-1:123456789012:function:L1",
+      "LastModified": "2022-01-01T10:00:00Z",
+      "State": "Enabled",
+      "StartingPosition": "LATEST"
+    },
+    {
+      "UUID": "mapping-uuid-2",
+      "BatchSize": 10,
+      "EventSourceArn": "arn:aws:s3:::your-bucket-name",
+      "FunctionArn": "arn:aws:lambda:us-east-1:123456789012:function:L2",
+      "LastModified": "2022-01-01T11:00:00Z",
+      "State": "Enabled",
+      "StartingPosition": "LATEST"
+    },
+    {
+      "UUID": "mapping-uuid-3",
+      "BatchSize": 10,
+      "EventSourceArn": "arn:aws:dynamodb:us-east-1:123456789012:table/your-table-name/stream/2022-01-01T10:00:00.000",
+      "FunctionArn": "arn:aws:lambda:us-east-1:123456789012:function:L4",
+      "LastModified": "2022-01-01T12:00:00Z",
+      "State": "Enabled",
+      "StartingPosition": "LATEST"
+    },
+    {
+      "UUID": "mapping-uuid-6",
+      "BatchSize": 10,
+      "EventSourceArn": "arn:aws:sqs:us-east-1:123456789012:your-sqs-queue-arn",
+      "FunctionArn": "arn:aws:lambda:us-east-1:123456789012:function:L5",
+      "LastModified": "2022-01-01T15:00:00Z",
+      "State": "Enabled",
+      "StartingPosition": "LATEST"
+    },
+    {
+      "UUID": "mapping-uuid-7",
+      "BatchSize": 10,
+      "EventSourceArn": "arn:aws:iot:us-east-1:123456789012:rule/R1",
+      "FunctionArn": "arn:aws:lambda:us-east-1:123456789012:function:L6",
+      "LastModified": "2022-01-01T16:00:00Z",
+      "State": "Enabled",
+      "StartingPosition": "LATEST"
+    },
+    {
+      "UUID": "abcdefg-12345-xyz",
+      "BatchSize": 10,
+      "EventSourceArn": "arn:aws:sns:us-east-1:123456789012:MyTopic",
+      "FunctionArn": "arn:aws:lambda:us-east-1:123456789012:function:L4",
+      "LastModified": "2023-07-09T12:34:56.789Z",
+      "State": "Enabled",
+      "StateTransitionReason": "",
+      "LastProcessingResult": "",
+      "DestinationConfig": {
+        "OnSuccess": {
+          "Destination": "arn:aws:logs:us-east-1:123456789012:destination1"
+        },
+        "OnFailure": {
+          "Destination": "arn:aws:logs:us-east-1:123456789012:destination2"
+        }
+      }
+    }
+  ]
+  
